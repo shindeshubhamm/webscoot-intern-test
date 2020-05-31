@@ -18,7 +18,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "BROWSER=none react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,5 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://hn.algolia.com/api"
+  "proxy": "https://hn.algolia.com"
 }
