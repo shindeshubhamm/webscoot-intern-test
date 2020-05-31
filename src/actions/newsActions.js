@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export const getNews = () => async (dispatch) => {
   setLoading()
-  const res = await axios('/api/v1/search')
+  const res = await axios.get('https://hn.algolia.com/api/v1/search')
   dispatch({
     type: GET_NEWS,
     payload: res.data.hits
