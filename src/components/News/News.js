@@ -10,7 +10,7 @@ const News = ({ news: { news, loading }, getNews }) => {
     // eslint-disable-next-line
   }, [])
 
-  if (loading || news === null) {
+  if (loading || news === null || news === undefined) {
     return <Spinner />
   }
 
