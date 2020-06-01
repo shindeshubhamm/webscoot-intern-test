@@ -5,6 +5,7 @@ import {
 
 const initialState = {
   news: null,
+  pages: 0,
   loading: false,
   error: null
 }
@@ -14,7 +15,8 @@ export default (state = initialState, action) => {
     case GET_NEWS:
       return {
         ...state,
-        news: action.payload,
+        news: action.payload.hits,
+        pages: action.payload.nbPages,
         loading: false
       }
 

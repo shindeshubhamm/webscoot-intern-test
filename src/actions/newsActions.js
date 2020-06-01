@@ -22,7 +22,7 @@ export const getNews = (parameters) => async (dispatch) => {
     const res = await axios.get(link)
     dispatch({
       type: GET_NEWS,
-      payload: res.data.hits
+      payload: res.data
     })
   } catch (e) {
     console.log(e)
