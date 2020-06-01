@@ -4,9 +4,11 @@ import { getNews } from '../../actions/newsActions'
 import NewsItem from './NewsItem'
 import Spinner from '../Layout/Spinner/Spinner'
 
-const News = ({ news: { news, loading }, getNews }) => {
+const News = ({ news: { news, loading }, getNews, location }) => {
   useEffect(() => {
-    getNews()
+    const parameters = location.search.slice('1')
+    // console.log(parameters)
+    getNews(parameters)
     // eslint-disable-next-line
   }, [])
 
