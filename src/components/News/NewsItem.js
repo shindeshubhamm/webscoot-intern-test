@@ -5,7 +5,7 @@ const NewsItem = ({ newsItem }) => {
   const { created_at, points, title, author, url, num_comments } = newsItem
   return (
     <div>
-      {console.log(newsItem)}
+      {/* {console.log(newsItem)} */}
       <div className="card my-2" style={{ width: "100%" }}>
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
