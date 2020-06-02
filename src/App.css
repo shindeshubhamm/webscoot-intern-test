@@ -3,3 +3,9 @@
 * {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
+
+.page-link:focus,
+.page-link:active {
+  outline: none !important;
+  box-shadow: none;
+}

@@ -7,6 +7,7 @@ const initialState = {
   news: null,
   pages: 0,
   loading: false,
+  currentParameters: null,
   error: null
 }
 
@@ -15,8 +16,9 @@ export default (state = initialState, action) => {
     case GET_NEWS:
       return {
         ...state,
-        news: action.payload.hits,
-        pages: action.payload.nbPages,
+        news: action.payload.data.hits,
+        pages: action.payload.data.nbPages,
+        currentParameters: action.payload.parameters,
         loading: false
       }
 

@@ -1,9 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import Navbar from './Navbar/Navbar'
 import PageBar from './PageBar/PageBar'
 
-const Layout = ({ children, news: { pages } }) => {
+const Layout = ({ children }) => {
   // const { pages } = props
   return (
     <div>
@@ -11,13 +10,9 @@ const Layout = ({ children, news: { pages } }) => {
       <div className="container">
         {children}
       </div>
-      <PageBar pages={pages} />
+      <PageBar />
     </div>
   )
 }
 
-const mapStateToProps = (state) => ({
-  news: state.news
-})
-
-export default connect(mapStateToProps, null)(Layout)
+export default Layout
