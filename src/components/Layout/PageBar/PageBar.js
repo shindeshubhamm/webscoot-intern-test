@@ -1,12 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { pageChanged, getNews } from '../../../actions/newsActions'
+import { updateParameters } from '../../../actions/newsActions'
 import ReactPaginate from 'react-paginate'
 
-const PageBar = ({ news: { pages, currentParameters }, pageChanged, getNews }) => {
+const PageBar = ({ news: { pages, currentParameters }, updateParameters }) => {
   const pageChange = ({ selected }) => {
-    // console.log(currentParameters + `&page=${selected}`)
-    getNews(currentParameters + `&page=${selected}`)
+    const newParameters = {
+      ...currentParameters,
+      page: selected
+    }
+    updateParameters(newParameters)
   }
   return (
     <nav aria-label="Change Page" className="my-5">
@@ -38,4 +41,4 @@ const mapStateToProps = (state) => ({
   news: state.news
 })
 
-export default connect(mapStateToProps, { pageChanged, getNews })(PageBar)
+export default connect(mapStateToProps, { updateParameters })(PageBar)

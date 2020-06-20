@@ -2,15 +2,23 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getNews } from '../../actions/newsActions'
 import NewsItem from './NewsItem'
+import queryString from 'query-string'
 import Spinner from '../Layout/Spinner/Spinner'
 
-const News = ({ news: { news, loading }, getNews, location }) => {
+const News = ({ news: { news, loading, currentParameters }, getNews, location, history }) => {
+  console.log('thispage')
+  const parameters = queryString.parse(location.search)
   useEffect(() => {
-    const parameters = location.search.slice('1')
-    // console.log(parameters)
     getNews(parameters)
     // eslint-disable-next-line
-  }, [location])
+  }, [])
+
+  // useEffect(() => {
+  //   const { page = 1, query = '' } = currentParameters
+  //   history.push(`?page=${page}&query=${query}`)
+  //   console.log('updated parameters')
+  //   // eslint-disable-next-line
+  // }, [currentParameters])
 
   if (loading || news === null) {
     return <Spinner />

@@ -1,13 +1,15 @@
 import {
   GET_NEWS,
-  SET_LOADING
+  SET_LOADING,
+  UPDATE_PARAMETERS,
+  ERROR_REDIRECT
 } from '../actions/types'
 
 const initialState = {
   news: null,
   pages: 0,
   loading: false,
-  currentParameters: null,
+  currentParameters: {},
   error: null
 }
 
@@ -26,6 +28,17 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: true
+      }
+
+    case UPDATE_PARAMETERS:
+      return {
+        ...state,
+        currentParameters: action.payload
+      }
+
+    case ERROR_REDIRECT:
+      return {
+        ...state
       }
 
     default:
